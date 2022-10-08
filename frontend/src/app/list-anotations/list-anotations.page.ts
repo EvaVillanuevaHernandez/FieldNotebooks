@@ -31,5 +31,14 @@ export class ListAnotationsPage implements OnInit {
     this.router.navigateByUrl("/add-anotation");
   }
 
-  
+  // deleteAnotation(anotations) {
+  //   if (window.confirm('Are you sure')) {
+  //     this.anotationService.deleteAnotation(anotations.id)
+  //     .subscribe(() => {
+  //         this.ionViewDidEnter(); 
+  //         console.log('Anotation deleted!')
+  //       }
+  //     )
+  //   }
+  // }
 }

@@ -56,6 +56,7 @@ export class AddAnotationPage implements OnInit {
   }
 
   async submitForm() {
+   
     this.isSubmitted = true;
     if (!this.anotationForm.valid) {
       console.log('Please provide all the required values!')

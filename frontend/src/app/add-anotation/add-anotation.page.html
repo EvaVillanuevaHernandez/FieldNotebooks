@@ -38,21 +38,21 @@
       <ion-label position="floating">Name</ion-label>
       <ion-input formControlName="name" type="text" required></ion-input>
     </ion-item>
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.brand.errors?.required">Name is required.</span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">Name is required.</span>
     
     <ion-item lines="full">
       <ion-label position="floating">Species</ion-label>
       <ion-input formControlName="species" type="text" required></ion-input>
     </ion-item>
 
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.model.errors?.required">Species is required.</span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.species.errors?.required">Species is required.</span>
     
     <ion-item lines="full">
       <ion-label position="floating">Description</ion-label>
-      <ion-input formControlName="species" type="text" required></ion-input>
+      <ion-input formControlName="description" type="text" required></ion-input>
     </ion-item>
 
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.model.errors?.required">Description is required.</span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.description.errors?.required">Description is required.</span>
     
     
     <ion-row>

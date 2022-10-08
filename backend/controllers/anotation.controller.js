@@ -43,27 +43,77 @@ exports.findAll = (req, res) => {
 
 // Find a single Anotation with an id
 exports.findOne = (req, res) => {
-  Anotation.findOne(id).then(data => {
-    res.send(data);
-  }).catch(err => {
-    res.status(500).send({
-      message: err.message || "Some error occurred while retrieving one Anotations"
+  const id = req.params.id;
+
+  Anotation.findByPk(id)
+    .then(data => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find Anotation with id=${id}.`
+        });
+      }
     })
-  })
-}
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving Anotation with id=" + id
+      });
+    });
+};
 
 // Update a Anotation by the id in the request
 exports.update = (req, res) => {
-  // Anotation.update(id).then(data => {
-  //   res.send(data);
-  // }).catch(err => {
-  //   res.status(500).send({
-  //     message: err.message || "Some error occurred while retrieving one Anotations"
-  //   })
-  // })
+  const id = req.params.id;
+  const anotation = {
+    name: req.body.name,
+    species: req.body.species,
+    description: req.body.description,
+    filename: req.file ? req.file.filename : ""
+  }
+  Anotation.update(anotation, {
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Anotation was updated successfully."
+        });
+      } else {
+        res.send({
+          message: `Cannot update Anotation with id=${id}. Maybe Anotation was not found or req.body is empty!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating Anotation with id=" + id
+      });
+    });
 };
 
 // Delete a Anotation with the specified id in the request
 exports.delete = (req, res) => {
+    const id = req.params.id;
   
-};
+    Anotation.destroy({
+      where: { id: id }
+    })
+      .then(num => {
+        if (num == 1) {
+          res.send({
+            message: "Anotation was deleted successfully!"
+          });
+        } else {
+          res.send({
+            message: `Cannot delete Anotation with id=${id}. Maybe Anotation was not found!`
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Could not delete Anotation with id=" + id
+        });
+      });
+  };
+

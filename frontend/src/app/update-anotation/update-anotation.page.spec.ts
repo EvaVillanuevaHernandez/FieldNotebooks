@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AddAnotationPage } from './add-anotation.page';
+import { UpdateAnotationPage } from './update-anotation.page';
 
-describe('AddAnotationPage', () => {
-  let component: AddAnotationPage;
-  let fixture: ComponentFixture<AddAnotationPage>;
+describe('UpdateAnotationPage', () => {
+  let component: UpdateAnotationPage;
+  let fixture: ComponentFixture<UpdateAnotationPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddAnotationPage ],
+      declarations: [ UpdateAnotationPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AddAnotationPage);
+    fixture = TestBed.createComponent(UpdateAnotationPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

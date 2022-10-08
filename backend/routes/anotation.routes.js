@@ -17,7 +17,7 @@ module.exports = app => {
   router.get("/:id", anotation.findOne);
 
   // Update a Anotation with id
-  router.put("/:id", anotation.update);
+  router.put("/:id",anotation.update);
 
   // Delete a Anotation with id
   router.delete("/:id", anotation.delete);

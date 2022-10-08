@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,10 @@ export class AnotationService {
   getAnotations(){
     return this.httpClient.get(this.endPoint);
   }
+
+  // deleteAnotation(id) {
+  //   return this.httpClient.delete(this.endPoint + '/' + id)
+  // }
 
   createAnotation(anotation, blob){
     let formData = new FormData();

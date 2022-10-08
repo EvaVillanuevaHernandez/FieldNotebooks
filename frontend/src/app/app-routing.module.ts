@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'list-anotations',
     loadChildren: () => import('./list-anotations/list-anotations.module').then( m => m.ListAnotationsPageModule)
+  },  {
+    path: 'update-anotation',
+    loadChildren: () => import('./update-anotation/update-anotation.module').then( m => m.UpdateAnotationPageModule)
   },
+
 ];
 
 @NgModule({
