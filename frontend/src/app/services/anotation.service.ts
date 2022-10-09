@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +15,6 @@ export class AnotationService {
     return this.httpClient.get(this.endPoint);
   }
 
-  // deleteAnotation(id) {
-  //   return this.httpClient.delete(this.endPoint + '/' + id)
-  // }
 
   createAnotation(anotation, blob){
     let formData = new FormData();
@@ -29,5 +26,21 @@ export class AnotationService {
     return this.httpClient.post(this.endPoint, formData);
   }
 
+  // updateAnotation(anotation, blob){
+  //   let formData = new FormData();
+  //   formData.set("name", anotation.name);
+  //   formData.set("species", anotation.species);
+  //   formData.set("description", anotation.description);
+  //   formData.set("file", blob);
 
+  //   return this.httpClient.put(this.endPoint + '/' + anotation.id, formData)
+  // }
+
+  deleteAnotation(id) {
+    return this.httpClient.delete(this.endPoint + '/' + id)
+      .pipe(
+        tap(_ => console.log(`Anotation deleted: ${id}`))
+        
+      );
+  }
 }

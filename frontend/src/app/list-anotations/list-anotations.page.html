@@ -2,32 +2,44 @@
   <ion-toolbar>
     <ion-title>Field Notebook</ion-title>
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
-  <ion-list>
+
+  <ion-list show-delete="data.showDelete">
     <ion-item *ngFor="let b of anotations">
-      
+
       <ion-avatar slot="start">
         <img *ngIf="b.filename" src="http://localhost:8080/images/{{b.filename}}" alt="image"/><!--Accede a la base de datos con esta ruta --> 
       </ion-avatar>
+
       <ion-label>
         <h1>{{b.name}}</h1>
         <p>{{b.species}}</p>
         <p>{{b.description}}</p>
       </ion-label>
+
+      <ion-button class="button-delete" (click)=" removeAnotation(b.id)">
+        <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+      </ion-button>
+
+      <!-- <ion-button class="button-update" (click)=" updateAnotation(b.id)">
+        <ion-icon name="reader-outline" style="zoom:1.5"></ion-icon>
+      </ion-button> -->
+
     </ion-item>
   </ion-list>
 
   
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="addAnotation()">
+    <ion-fab-button class="add-button" (click)="addAnotation()">
       <ion-icon name="add-outline"></ion-icon>
     </ion-fab-button>
+
+  
   </ion-fab>
 
-  <!-- <button ion-button clear (click)="deleteAnotation(anotations)">
-    <ion-icon name="trash" style="zoom:1.5"></ion-icon>
-  </button> -->
+
   
 </ion-content>

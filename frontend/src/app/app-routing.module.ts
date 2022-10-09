@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'list-anotaions',
+    redirectTo: 'list-anotations',
     pathMatch: 'full'
   },
   {
@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'list-anotations',
     loadChildren: () => import('./list-anotations/list-anotations.module').then( m => m.ListAnotationsPageModule)
-  },  {
+  },
+  {
     path: 'update-anotation',
     loadChildren: () => import('./update-anotation/update-anotation.module').then( m => m.UpdateAnotationPageModule)
   },

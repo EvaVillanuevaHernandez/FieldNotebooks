@@ -26,19 +26,23 @@ export class ListAnotationsPage implements OnInit {
     })
   }
 
-
   addAnotation(){
     this.router.navigateByUrl("/add-anotation");
   }
 
-  // deleteAnotation(anotations) {
-  //   if (window.confirm('Are you sure')) {
-  //     this.anotationService.deleteAnotation(anotations.id)
-  //     .subscribe(() => {
-  //         this.ionViewDidEnter(); 
-  //         console.log('Anotation deleted!')
-  //       }
-  //     )
-  //   }
+  //No funciona
+  // updateAnotation(id){
+  //   this.router.navigateByUrl("/update-anotation");
   // }
+
+  removeAnotation(id) {
+    if (window.confirm('Are you sure?')) {
+      this.anotationService. deleteAnotation(id)
+      .subscribe(() => {
+          this.ionViewDidEnter(); 
+          console.log('Anotation deleted!')
+        }
+      )
+    }
+  }
 }
